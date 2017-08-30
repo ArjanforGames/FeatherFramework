@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+    {{{ header }}}
+<body>
+    <p>Whoops! It appears that you are not logged in.</p>
+    <p><strong>{{ errorMsg }}</strong></p>
+    
+    {{{ footer }}}
+</body>
+</html>

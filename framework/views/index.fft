@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+    {{{ header }}}
+<body>
+    <p><strong>{{ text }}</strong></p>
+    
+    {{{ footer }}}
+</body>
+</html>
