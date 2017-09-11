@@ -2,11 +2,11 @@
 
 namespace Framework;
 
-require_once('framework/interfaces/iMiddleware.php');
+require_once('framework/interfaces/Middleware.php');
 
 session_start();
 
-class Auth implements IMiddleware{
+class Auth implements MiddleWareInterface{
 
     private $type = 'before';
     private $data = null;
