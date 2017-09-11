@@ -25,7 +25,8 @@ class Template{
         if(!is_null($this->data)){
             // Preg match the includes
             if(preg_match_all('/\{\{\{\s*?\w+\s*?\}\}\}/', $this->parsedFile, $matches)){
-                for($i = 0; $i < sizeof($matches[0]); $i++){
+                $sizeofMatches = sizeof($matches[0]);
+                for($i = 0; $i < $sizeofMatches; $i++){
                     $include = file_get_contents(VIEWS_DIRECTORY . VIEWS_INCLUDES . preg_replace('/[{\s}]/', '', $matches[0][$i]) . VIEWS_EXTENSION);
                     $this->parsedFile = str_replace($matches[0][$i], $include, $this->parsedFile);
                 }
@@ -33,7 +34,8 @@ class Template{
 
             // Preg match template functions
             if(preg_match_all('/@(?!end)\w+(\(\w+\s(as)\s\w+\))?/', $this->parsedFile, $matches)){
-                for($i = 0; $i < sizeof($matches[0]); $i++){
+                $sizeofMatches = sizeof($matches[0]);
+                for($i = 0; $i < $sizeofMatches; $i++){
                     // matches[0] - Full regex
                     // matches[1] - Variables passed in the function ex. (users as user)
                     $funcArgs = explode(' ', str_replace(array('(', ')'), '', $matches[1][$i]));
@@ -52,7 +54,8 @@ class Template{
 
             // Preg match the variables
             if(preg_match_all('/\{\{\s*?\w+(->)?\w+?\s*?\}\}/', $this->parsedFile, $matches)){
-                for($i = 0; $i < sizeof($matches[0]); $i++){
+                $sizeofMatches = sizeof($matches[0]);
+                for($i = 0; $i < $sizeofMatches; $i++){
                     $match = explode('->', preg_replace('/[{\s}]/', '', $matches[0][$i]));
                     if(array_key_exists($match[0], $this->data)){
                         if(sizeof($match) == 2){

@@ -20,7 +20,7 @@ class Auth implements IMiddleware{
     }
 
     public function do(){
-        if(isset($_SESSION['authenticated']) && $_SESSION['authenticated'] == true) return true;
+        if(isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true) return true;
         $this->data = 'You do not appear to be logged in!';
         return false;
     }
